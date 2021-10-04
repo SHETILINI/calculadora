@@ -6,7 +6,7 @@ let arr = [];
 let nums = [];
 let a = 0;
 let b = 0;
-let c = 0;
+
 let i=0;
 
 
@@ -17,7 +17,7 @@ while (bool === true){
     nums = [];
     a = 0;
     b = 0;
-    c = 0;
+    
     i=0;
     //pregunta operacion y quitamos espacios.
     let arg = prompt("Qué operación quiere realizar?(+, -, * ó /)");
