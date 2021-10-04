@@ -28,7 +28,7 @@ while (bool === true){
         arg = prompt("Qué operación quiere realizar?(+, -, * ó /)");
     }
      /*Bucle mientras posición 0 y posición 1 no sean de tipo number*/
-    while((typeof arr[0] !== 'number') && (typeof arr[1] !== 'number')){
+    while((typeof arr[0] !== 'number') || (typeof arr[1] !== 'number')){
          //Pregunta de valores metidos en una cadena separados por espacio.
          let cadena = prompt("Dime dos valores(enteros) separados por espacio");
         
