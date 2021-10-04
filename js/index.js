@@ -1,7 +1,6 @@
 alert("¡Bienvenido a la calculadora!");
 // Declaro variables
 let bool = true;
-
 let arr = [];
 let nums = [];
 let a = 0;
@@ -28,39 +27,37 @@ while (bool === true){
     while ((arg !== '+') && (arg !== '-') && (arg !== '*') && (arg !== '/')){
         arg = prompt("Qué operación quiere realizar?(+, -, * ó /)");
     }
-    
-
-        //Pregunta de valores metidos en una cadena separados por espacio.
-        let cadena = prompt("Dime dos valores(enteros) separados por espacio");
+     /*Bucle mientras posición 0 y posición 1 no sean de tipo number*/
+    while((typeof arr[0] !== 'number') && (typeof arr[1] !== 'number')){
+         //Pregunta de valores metidos en una cadena separados por espacio.
+         let cadena = prompt("Dime dos valores(enteros) separados por espacio");
         
-       // variable que quita los espacios de la cadena y mete solo números.
-        nums=cadena.split(" ").map(Number);
+         // variable que quita los espacios de la cadena y mete solo números.
+          nums=cadena.split(" ").map(Number);
+         
+          console.log(a);
+          console.log(b);
+          //bucle que utilizo para filtrar si los valores del array nums es un número o no
+          for ( i = 0; i < nums.length; i++ ){
+              if(nums[i] > 0){
+                  //añado los valores mayores que 0 a otro array
+                  arr.push(nums[i]);
+              }
+          }   
+          console.log(arr);   
+          /*Añado nuevos valores para a y b colocando las dos primeras posiciones del nuevo array que es donde se han guardado si son de tipo number
+           */
+  
+           if (typeof arr[0] === 'number'){
+              a = arr[0];  
+          }
+  
+          if (typeof arr[1] === 'number'){
+              b = arr[1];
+          }
+          
+    }
        
-        console.log(a);
-        console.log(b);
-        //bucle que utilizo para filtrar si los valores del array nums es un número o no
-        for ( i = 0; i < nums.length; i++ ){
-            if(nums[i] > 0){
-                //añado los valores mayores que 0 a otro array
-                arr.push(nums[i]);
-            }
-        }
-        /*Añado nuevos valores para a y b colocando las dos primeras posiciones del nuevo array que es donde se han guardado
-         pero si el valor no es un número, cambiaré este a cero*/
-
-         if (typeof arr[0] === 'number'){
-            a = arr[0];
-            
-        }else{
-            a = 0;
-        }
-
-        if (typeof arr[1] === 'number'){
-            b = arr[1];
-            
-        }else{
-            b = 0;
-        }
         
         
 
