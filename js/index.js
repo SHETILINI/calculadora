@@ -6,6 +6,7 @@ let arr = [];
 let nums = [];
 let a = 0;
 let b = 0;
+let c = 0;
 let i=0;
 
 
@@ -16,6 +17,7 @@ while (bool === true){
     nums = [];
     a = 0;
     b = 0;
+    c = 0;
     i=0;
     //pregunta operacion y quitamos espacios.
     let arg = prompt("Qué operación quiere realizar?(+, -, * ó /)");
@@ -32,30 +34,37 @@ while (bool === true){
         let cadena = prompt("Dime dos valores(enteros) separados por espacio");
         
        // variable que quita los espacios de la cadena y mete solo números.
-        nums=cadena.split(" ").map(Number)
-        console.log(nums);
+        nums=cadena.split(" ").map(Number);
+       
+        console.log(a);
+        console.log(b);
         //bucle que utilizo para filtrar si los valores del array nums es un número o no
         for ( i = 0; i < nums.length; i++ ){
-            
-            myArrClean = nums.filter(Boolean); 
-            if((isNaN(nums[i]) == false) && (nums[i] !== 0)){
-                //añado los valores que son números y distintos de cero al array arr
+            if(nums[i] > 0){
+                //añado los valores mayores que 0 a otro array
                 arr.push(nums[i]);
             }
         }
+        /*Añado nuevos valores para a y b colocando las dos primeras posiciones del nuevo array que es donde se han guardado
+         pero si el valor no es un número, cambiaré este a cero*/
 
-        console.log(arr);
-        //ordeno arr para que los dos valores que necesito se queden en las dos primeras posiciones del array
-        arr.sort();
-
-        a = arr[0];
-        b = arr[1];
-
-        if (arg === '/'){
+         if (typeof arr[0] === 'number'){
+            a = arr[0];
             
-            a = arr[1];
-            b = arr[0];
+        }else{
+            a = 0;
         }
+
+        if (typeof arr[1] === 'number'){
+            b = arr[1];
+            
+        }else{
+            b = 0;
+        }
+        
+        
+
+        
     
         //Creo un menú que recibe el argumento de operación para entrar a nuestra elección
         switch (arg) {
