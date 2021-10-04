@@ -51,6 +51,11 @@ while (bool === true){
         a = arr[0];
         b = arr[1];
 
+        if (arg === '/'){
+            
+            a = arr[1];
+            b = arr[0];
+        }
     
         //Creo un menú que recibe el argumento de operación para entrar a nuestra elección
         switch (arg) {
@@ -71,6 +76,7 @@ while (bool === true){
                 break;
                 //divi
             case '/':
+                
                 let div = a / b;
                 alert( div );
                 break;
