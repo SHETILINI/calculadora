@@ -5,29 +5,34 @@ let arr = [];
 let nums = [];
 let a = 0;
 let b = 0;
-
 let i=0;
-
-
-// bucle true para seguir calculando si el usuario lo desea.
 while (bool === true){
-    //Restablezco las variables a sus valores iniciales para que no se usen al restablecer el bucle.
     arr = [];
     nums = [];
     a = 0;
     b = 0;
-    
     i=0;
-    //pregunta operacion y quitamos espacios.
-    let arg = prompt("Qué operación quiere realizar?(+, -, * ó /)");
-    arg = arg.split(" ").join("");
 
-
-    //bucle que se repite mientras no introduzcas el valor de operación válido
-    while ((arg !== '+') && (arg !== '-') && (arg !== '*') && (arg !== '/')){
-        arg = prompt("Qué operación quiere realizar?(+, -, * ó /)");
+    //función normal que valida el punto1
+    function punto1() {
+        while ((arg !== '+') && (arg !== '-') && (arg !== '*') && (arg !== '/')){
+            if ((arg !== '+') && (arg !== '-') && (arg !== '*') && (arg !== '/')){
+                alert("No es correcto el tipo de operación introducido, compañere");
+            }
+            arg = prompt("Qué operación quiere realizar?(+, -, * ó /)");
+            arg = arg.split(" ").join("");
+        }
     }
-     /*Bucle mientras posición 0 o posición 1 no sean de tipo number*/
+
+    //función expresiva que valida el punto2
+    let punto2 = function(){
+        arr = [];
+        nums = [];
+        a = 0;
+        b = 0;
+        i=0;
+  
+     /*Bucle mientras posición 0 o posición 1 de arr no sean de tipo number*/
     while((typeof arr[0] !== 'number') || (typeof arr[1] !== 'number')){
          //Pregunta de valores metidos en una cadena separados por espacio.
          let cadena = prompt("Dime dos valores(enteros) separados por espacio");
@@ -50,48 +55,79 @@ while (bool === true){
   
            if (typeof arr[0] === 'number'){
               a = arr[0];  
-          }
+          }else{
+            alert("No es correcto el operando introducido");
+        }
   
           if (typeof arr[1] === 'number'){
               b = arr[1];
+              return arr;
+          }else{
+            alert("No es correcto el operando introducido");
           }
           
     }
-       
-        
-        
 
-        
-    
-        //Creo un menú que recibe el argumento de operación para entrar a nuestra elección
+    }
+    //función normal que valida el punto3
+    function punto3() {
         switch (arg) {
             //suma
             case '+':
-                let sum = a + b;
-                alert( sum );
+                //función flecha para sumar
+                let sum = (a, b) => a + b;
+
+                alert( sum(a, b) );
                 break;
                 //resta
             case '-':
-                let rest = a - b;
-                alert( rest );
+                //función flecha para restar
+                let rest = (a, b) => a - b;
+
+                alert( rest(a, b) );
                 break;
                 //multi
             case '*':
-                let mult = a * b;
-                alert( mult );
+                //función flecha para multiplicar
+                let mult = (a, b) => a * b;
+
+                alert( mult(a, b) );
                 break;
                 //divi
             case '/':
-                
-                let div = a / b;
-                alert( div );
+                //función flecha para dividir
+                let div = (a, b) => a / b;
+
+                alert( div(a, b) );
                 break;
             default:
                 alert( "No introduciste ningún valor" );
                 break;
       }
-      //guardamos el valor de bool(true or false) para saber si el usuario quiere seguir utilizando la calculadora. Si introducimos false, romperemos el bucle.
-      bool = confirm("¿Desea realizar otra operación?");
+    }
+    // Primera pregunta
+    let arg = prompt("Qué operación quiere realizar?(+, -, * ó /)");
+    arg = arg.split(" ").join("");
+    
+    //Comprobación con función normal punto1 pasándole variable arg para saber si está bien el tipo operación
+    if ((arg !== '+') && (arg !== '-') && (arg !== '*') && (arg !== '/')){
+        punto1(arg);
+    }
+    
+
+    //Declaración Variable val que guarda el return de la función de tipo expresión punto2
+    let val = punto2();
+
+    console.log(val);
+    //asignación a = posicion 0 del array val y b = posicion 1 del array val
+    a = val[0];
+    b = val[1];
+    //Llamada de función punto3 pasándole el argumento comprobado en la que se localiza un switch con las opciones correspondientes.
+    punto3(arg);
+
+    //guardamos el valor de bool(true or false) para saber si el usuario quiere seguir utilizando la calculadora. Si introducimos false, romperemos el bucle.
+    bool = confirm("¿Desea realizar otra operación?");
     
     
 }
+
