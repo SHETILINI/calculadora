@@ -18,9 +18,6 @@ while (bool === true){
     a = 0;
     b = 0;
     i=0;
-    
-   
-    
     //función normal que valida el punto1
     function punto1() {
         while ((arg !== '+') && (arg !== '-') && (arg !== '*') && (arg !== '/')){
@@ -37,20 +34,11 @@ while (bool === true){
         
   
      /*Bucle mientras posición 0 o posición 1 de arr no sean de tipo number*/
-    while((typeof arr[0] !== 'number') || (typeof arr[1] !== 'number')){
+    while((typeof arr[0] !== 'number') || (typeof arr[1] !== 'number') || (arr.length !== 1) || (arr2.length >= 0)){
          //Pregunta de valores metidos en una cadena separados por espacio.
          let cadena = prompt("Dime dos valores(enteros) separados por espacio");
          //Quito espacios de la cadena y los meto en un array de nombre lets para filtrar las R
-         lets=cadena.split(" ");
-         console.log(lets);
-         //Bucle for para filtrar las R
-         for ( i = 0; i < cadena.length; i++ ){
-             /*Si la iteración es igual a R hago un push de la propiedad LastResult
-              del objeto Calculadora al array "arr" */
-            if(lets[i] === 'R'){
-                arr.push(Calculadora.LastResult);
-            }
-         }
+       
          // variable que quita los espacios de la cadena y mete solo números.
           nums=cadena.split(" ").map(Number);
         
@@ -60,11 +48,27 @@ while (bool === true){
                   //añado los valores mayores que 0 a otro array
                   arr.push(nums[i]);
               }
+          }
+          lets=cadena.split(" ");
+          console.log(lets);
+
+          //Bucle for para filtrar las R
+          for ( i = 0; i < cadena.length; i++ ){
+              /*Si la iteración es igual a R hago un push de la propiedad LastResult
+               del objeto Calculadora al array "arr" */
+             if(lets[i] === 'R'){
+                 arr.push(Calculadora.LastResult);
+             }
+             //filtrar 0 de tipo string para añadirlo en tipo number a la cadena arr
+             if(lets[i] === '0'){
+                 arr.push(0);
+             }
           }   
            
           /*Condicionales que devuelven error si la posiciones 0 y 1 dónde se han guardado los números no son de tipo número
           , y en segundo condicional devuelve el array si la primera condición no se cumple
            */
+
           if (typeof arr[0] !== 'number'){
                 
               alert("No es correcto el operando introducido");
