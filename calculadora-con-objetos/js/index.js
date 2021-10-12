@@ -42,45 +42,33 @@ while (bool === true){
        
          // variable que quita los espacios de la cadena y mete solo números.
           nums=cadena.split(" ").map(Number);
-        
+          lets=cadena.split(" ");
+          console.log(lets);
           //bucle que utilizo para filtrar si los valores del array nums es un número o no
-          for ( i = 0; i < nums.length; i++ ){
+          for ( i = 0; i < lets.length; i++ ){
+              /*Si la iteración es igual a R hago un push de la propiedad LastResult
+               del objeto Calculadora al array "arr" */
+            if(lets[i] === 'R'){
+                arr.push(Calculadora.LastResult);
+            }
               if(nums[i] > 0){
                   //añado los valores mayores que 0 a otro array
                   arr.push(nums[i]);
               }
-          }
-          lets=cadena.split(" ");
-          console.log(lets);
-
-          //Bucle for para filtrar las R
-          for ( i = 0; i < cadena.length; i++ ){
-              /*Si la iteración es igual a R hago un push de la propiedad LastResult
-               del objeto Calculadora al array "arr" */
-             if(lets[i] === 'R'){
-                 arr.push(Calculadora.LastResult);
-             }
-             //filtrar 0 de tipo string para añadirlo en tipo number a la cadena arr
+                //filtrar 0 de tipo string para añadirlo en tipo number a la cadena arr
              if(lets[i] === '0'){
-                 arr.push(0);
-             }
-          }   
+                arr.push(0);
+            }
+          } 
            
           /*Condicionales que devuelven error si la posiciones 0 y 1 dónde se han guardado los números no son de tipo número
           , y en segundo condicional devuelve el array si la primera condición no se cumple
            */
 
-          if (typeof arr[0] !== 'number'){
-                
+          if ((typeof arr[0] !== 'number')||(typeof arr[1] !== 'number')){  
               alert("No es correcto el operando introducido");
-            }
-          
-          
-            if (typeof arr[1] !== 'number'){
-                alert("No es correcto el operando introducido");
             }else{
-                return arr;
-                
+                return arr;  
             }
             
           
@@ -147,10 +135,10 @@ while (bool === true){
         
     
     console.log(val);
-    //asignación a = posicion 1 del array val y b = posicion 0 del array val
+    //asignación a = posicion 0 del array val y b = posicion 1 del array val
     
-    a = val[1];
-    b = val[0];
+    a = val[0];
+    b = val[1];
     
     
     
