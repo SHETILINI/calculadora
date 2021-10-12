@@ -36,9 +36,6 @@ while (bool === true){
      /*Bucle mientras posición 0 o posición 1 de arr no sean de tipo number*/
     while((typeof arr[0] !== 'number') || (typeof arr[1] !== 'number') || (arr.length < 1)){
         arr = [];
-        arr2 = [];
-        nums = [];
-        lets = [];
         //Pregunta de valores metidos en una cadena separados por espacio.
          let cadena = prompt("Dime dos valores(enteros) separados por espacio");
          //Quito espacios de la cadena y los meto en un array de nombre lets para filtrar las R
@@ -150,10 +147,10 @@ while (bool === true){
         
     
     console.log(val);
-    //asignación a = posicion 0 del array val y b = posicion 1 del array val
+    //asignación a = posicion 1 del array val y b = posicion 0 del array val
     
-    a = val[0];
-    b = val[1];
+    a = val[1];
+    b = val[0];
     
     
     
