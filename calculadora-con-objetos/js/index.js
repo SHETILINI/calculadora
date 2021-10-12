@@ -51,8 +51,8 @@ while (bool === true){
             if(lets[i] === 'R'){
                 arr.push(Calculadora.LastResult);
             }
-              if(nums[i] > 0){
-                  //añado los valores mayores que 0 a otro array
+              if((nums[i] > 0) || (nums[i] < 0)){
+                  //añado los valores mayores y menores que 0 a otro array
                   arr.push(nums[i]);
               }
                 //filtrar 0 de tipo string para añadirlo en tipo number a la cadena arr
