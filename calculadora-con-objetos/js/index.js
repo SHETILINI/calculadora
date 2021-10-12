@@ -34,8 +34,12 @@ while (bool === true){
         
   
      /*Bucle mientras posición 0 o posición 1 de arr no sean de tipo number*/
-    while((typeof arr[0] !== 'number') || (typeof arr[1] !== 'number') || (arr.length !== 1) || (arr2.length >= 0)){
-         //Pregunta de valores metidos en una cadena separados por espacio.
+    while((typeof arr[0] !== 'number') || (typeof arr[1] !== 'number') || (arr.length < 1)){
+        arr = [];
+        arr2 = [];
+        nums = [];
+        lets = [];
+        //Pregunta de valores metidos en una cadena separados por espacio.
          let cadena = prompt("Dime dos valores(enteros) separados por espacio");
          //Quito espacios de la cadena y los meto en un array de nombre lets para filtrar las R
        
@@ -142,11 +146,13 @@ while (bool === true){
 
     //Declaración Variable val que guarda el return de la función de tipo expresión punto2
     let val = punto2();
-
+    
+        
+    
     console.log(val);
     //asignación a = posicion 0 del array val y b = posicion 1 del array val
+    
     a = val[0];
-  
     b = val[1];
     
     
@@ -189,6 +195,8 @@ while (bool === true){
         LastResult : 0, 
     
       };
+
+      
      //Llamada de función punto3 pasándole el argumento comprobado en la que se localiza un switch con las opciones correspondientes.
      punto3(arg);
 
